@@ -1,0 +1,6 @@
+uebung2:
+document.querySelector("h1")
+document.querySelector("#buy_form")
+document.querySelector("#product_img")
+
+
