@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Register on WebApp</title>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/register.js"></script>
+	<script type="text/javascript" src="js/webapp.js"></script>
+	<link   rel="stylesheet" href="css/register.css"  ></link>
+	
+</head>
+<body>
+			
+			<form id="sendToRegisterServlet"  >
+				<table>
+				
+					<tr>
+						<th align="left">
+							Firstname
+						</th>
+						<td>
+							<input type="text" name="firstname" id="firstname" >
+						</td>
+						<td>
+							<div id="firstname_alert" class="errorMessage" ></div>
+						</td>
+					</tr>
+					<tr>
+						<th align="left">
+							Lastname
+						</th>
+						<td>
+							<input type="text" name="lastname" id="lastname"  >
+						</td>
+						<td>
+							<div id="lastname_alert"  class="errorMessage" ></div>
+						</td>
+					</tr>
+					<tr>
+						<th align="left">
+							Age
+						</th>
+						<td>
+							<input type="text" name="age" id="age" >
+						</td>
+						<td>
+							<div id="age_alert"  class="errorMessage" ></div>
+						</td>
+					</tr>
+					<tr>
+						<th align="left">
+							Email
+						</th>
+						<td>
+							<input type="text" name="email" id="email" >
+						</td>
+						<td>
+							<div id="email_alert"  class="errorMessage" ></div>
+						</td>
+					</tr>
+					<tr>
+						<th align="left">
+							Password
+						</th>
+						<td>
+							<input type="password" name="password" id="password" >
+						</td>
+						<td>
+							<div id="password_alert" class="errorMessage" ></div>
+						</td>
+					</tr>
+					<tr>
+						<th align="left">
+							Password repeat
+						</th>
+						<td>
+							<input type="password"  name="password_repeat" id="password_repeat" >
+						</td>
+					</tr>
+					<tr>
+						<th colspan="2">
+							<input style="width:100%" id="registerButton" type="submit" value="Register now" required />
+						</th>
+					</tr>
+				</table>
+			
+			
+			
+			</form>
+			<br/>
+			<div id="responsetext">
+			
+			</div>
+			
+			
+			
+			
+</body>
+</html>
