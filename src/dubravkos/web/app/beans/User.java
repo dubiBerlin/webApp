@@ -6,6 +6,7 @@ public class User {
 	private String lastName;
 	private int age;
 	private String email;
+	private String username;
 	private String password;
 	
 	public String getPassword() {
@@ -16,7 +17,7 @@ public class User {
 		this.password = password;
 	}
 
-	public User() {  
+	public User() {
 		
 	}
 
@@ -50,6 +51,14 @@ public class User {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	

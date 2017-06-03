@@ -5,3 +5,7 @@ password.: root
 DB.......: webappdb
 user.....: webappDBuser
 password.: geheim
+
+
+for Serlvet JSON jars:
+http://www.java4s.com/json/jars-required-to-work-with-json-in-java-applications/

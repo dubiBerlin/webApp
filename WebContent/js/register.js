@@ -1,7 +1,5 @@
 $(document).ready(function(){
 	
-	
-	
 	function checkUserInput(){
 		 
 		cleanErrorFields("errorMessage");
@@ -39,6 +37,13 @@ $(document).ready(function(){
 				 document.getElementById("email_alert").innerHTML = "Not a valid emailname!"
 				 result = false;
 			 }
+		 }
+/***************************************************************************/		 
+		 x = document.getElementById("username").value;
+		 
+		 if(x == ""){
+			 document.getElementById("username_alert").innerHTML = "missing"
+				 result = false;
 		 }
 		 
 		 var password = document.getElementById("password").value;
@@ -93,14 +98,34 @@ $(document).ready(function(){
 	                type: "POST",
 	                url: "RegisterServlet",
 	                data: dataString,
-	                dataType: "text",
+	                dataType: "JSON",
 	               
 	                //if received a response from the server
 	                success: function(dataresponse) {
 	                    //our country code was correct so we have some information to display
-	                    //$("#responsetext").text(data);
-	                    
-	                    alert("Hallo und ein herzliches Willkommen "+dataresponse+"!");
+	                    //$("#responsetext").text(data);	                	
+	                	
+	                	var strDataresponse = new String(dataresponse.registration);
+	                	
+	                	if(strDataresponse.localeCompare("success")==0){
+	                		
+	                		//document.getElementById("resultText").className = "succcessMessage";
+	                		$("#resultText").addClass("succcessMessage");
+	                		$("#resultText").text("You are registered successfully!");
+	                		
+	                	}else{
+	                		
+	                		if(strDataresponse.localeCompare("failed_username")==0){
+	                			$("#resultText").addClass("errorMessage");
+		                		$("#resultText").text(dataresponse.resultText);
+	                		}else{
+	                			
+	                			if(strDataresponse.localeCompare("failed")==0){
+		                			$("#resultText").addClass("errorMessage");
+			                		$("#resultText").text(dataresponse.resultText);
+		                		}
+	                		}
+	                	}
 	                },
 	                
 	                error: function(){
@@ -112,7 +137,10 @@ $(document).ready(function(){
 	    	}
 	    });
 	    
-	    
+	    function validateEmail(strEmail){
+			var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		    return re.test(strEmail);
+		}
 	    
 });
 	

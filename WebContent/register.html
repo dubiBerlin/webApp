@@ -4,19 +4,22 @@
 	<meta charset="ISO-8859-1">
 	<title>Register on WebApp</title>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/webapp2.js"></script>
 	<script type="text/javascript" src="js/register.js"></script>
-	<script type="text/javascript" src="js/webapp.js"></script>
 	<link   rel="stylesheet" href="css/register.css"  ></link>
 	
 </head>
 <body>
 			
+			<div id="navHeader"></div>
+			<br/>
+			<br/>
 			<form id="sendToRegisterServlet"  >
 				<table>
 				
 					<tr>
 						<th align="left">
-							Firstname
+							<label >Firstname</label>
 						</th>
 						<td>
 							<input type="text" name="firstname" id="firstname" >
@@ -60,6 +63,17 @@
 					</tr>
 					<tr>
 						<th align="left">
+							Username
+						</th>
+						<td>
+							<input type="text" name="username" id="username" >
+						</td>
+						<td>
+							<div id="username_alert"  class="errorMessage" ></div>
+						</td>
+					</tr>
+					<tr>
+						<th align="left">
 							Password
 						</th>
 						<td>
@@ -77,15 +91,20 @@
 							<input type="password"  name="password_repeat" id="password_repeat" >
 						</td>
 					</tr>
+				
 					<tr>
 						<th colspan="2">
 							<input style="width:100%" id="registerButton" type="submit" value="Register now" required />
 						</th>
 					</tr>
+					</tr>
+				
+					<tr>
+						<th colspan="2">
+							<div id="resultText"></div>
+						</th>
+					</tr>
 				</table>
-			
-			
-			
 			</form>
 			<br/>
 			<div id="responsetext">

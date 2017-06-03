@@ -62,6 +62,7 @@ public class AdminServlet extends HttpServlet {
 					jsonObj.put("lastname" , users.get(i).getLastName());
 					jsonObj.put("username" , users.get(i).getUsername());
 					jsonObj.put("email"    , users.get(i).getEmail());
+					jsonObj.put("age"    , users.get(i).getAge());
 					
 					jsonArray.add(jsonObj);
 				}
