@@ -75,14 +75,14 @@ $(document).ready(function(){
 				 					"</tr>";
 			 
 			 for(var i = 0; i < data.users.length; i++){				 	 
-				 html = html+	"<tr id='delBtn_"+i+"'>" +
+				 html = html+	"<tr id='row_id_"+i+"'>" +
 				 					"<td>"+(i+1)+"</td>"+
 				 					"<td>"+data.users[i].username+"</td>"+
 				 					"<td>"+data.users[i].firstname+"</td>" +
 				 					"<td>"+data.users[i].lastname+"</td>" +
 				 					"<td>"+data.users[i].email+"</td>" +
 				 					"<td>"+data.users[i].age+"</td>" +
-				 					"<td>"+"<button id='del_btn_'"+i+"'>Delete</button></td>" +
+				 					"<td>"+"<button id='del_btn_"+i+"'   >Delete</button></td>" +
 				 				"</tr>" ;
 			
 				 var objUser = createUserObject(data.users[i].username, data.users[i].firstname, data.users[i].lastname, data.users[i].email, data.users[i].age);
@@ -112,6 +112,8 @@ $(document).ready(function(){
 			return user;
 		}
 	 
-	 
+		function deleteUser(){
+			alert("delete user");
+		}
 	 
 });

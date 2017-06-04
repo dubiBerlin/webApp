@@ -2,6 +2,7 @@ package dubravkos.web.app.servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -36,6 +37,10 @@ public class AdminServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// access the parameter names to see which parameter has been send in order to access the right content of the parameter
+		Enumeration enumeration = request.getParameterNames();
+		String parametername = (String) enumeration.nextElement();
+		System.out.println("paramname: "+parametername);
 		
 		/*
 		 * Admin.js
@@ -43,7 +48,8 @@ public class AdminServlet extends HttpServlet {
 		 * Der Admin möchte alle User haben. Dazu wurde der Button gedrückt
 		 * der alle User abruft die in der DB enthalten sind
 		 */
-		if(request.getParameter("pressedButton").equals("show_all_users_btn")){
+		if(parametername.equals("pressedButton")){
+			if(request.getParameter("pressedButton").equals("show_all_users_btn")  ){
 			System.out.println("show_user_btn wurde gedrückt.");
 			
 			try {
@@ -74,12 +80,33 @@ public class AdminServlet extends HttpServlet {
 				
 				response.setContentType("application/json");
 				response.getWriter().write(returnObj.toString());
-				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			}
 			
+		}
+		else{
+			// admin2.js
+			if(parametername.equals("username")){
+				String username = request.getParameter("username");
+				System.out.println("The user "+username+" has to be deleted");
+				
+				
+				try {
+					if(DatabaseOperations.deleteUser(username)==1){
+						response.getWriter().write("succes");
+					}else{
+						response.getWriter().write("failed");
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+			}
 		}
 		
 		

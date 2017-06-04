@@ -86,14 +86,25 @@ public class DatabaseOperations {
 		while(rs.next()){
 			
 			if(rs.getString(columnName).equalsIgnoreCase(searchedValue)){
+				connection.close();
 				return true;
 			}
 			
 		}
+		connection.close();
 		return false;
 	}
 	
-	
+	public static int deleteUser(String username) throws SQLException{
+		connection = DBManager.getMySQLDBConnection();
+		
+		String query = "DELETE FROM user WHERE username = '"+username+"'";
+		
+		Statement stmt = connection.createStatement();
+		int deletionResult = stmt.executeUpdate(query);
+		
+		return deletionResult;
+	}
 	
 
 }
