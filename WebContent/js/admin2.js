@@ -36,7 +36,9 @@ $(document).ready(function(){
 	    		// admin has pressed ok so the user has to be deleted
 	    		// send it to the adminservlet and parameter is the username
 	    		$.get("AdminServlet", {username: username}, function(data){
-	    			alert(data);
+	    			
+	    			// remove affected row 
+	    			$('#row_id_'+id).remove();
 	    		});
 	    		
 	    		
