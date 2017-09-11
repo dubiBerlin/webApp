@@ -5,6 +5,7 @@ $(document).ready(function(){
 	var _preValues = "";
 	var _btnHasBeenClicked = false;
 	var _labelsArray = [];
+	var _comments = "";
 	
 	$("button").click(function(e){
 	   
@@ -30,6 +31,7 @@ $(document).ready(function(){
 		
 //		printLblArray();
 	}
+	
 	
 	function createElement( label, sectionLabel, id, required, userInput){
 		
@@ -67,7 +69,6 @@ $(document).ready(function(){
 		// Regex: Finde alle ===Bla bla bla===
 		var regex = /===.*===/;
 		
-		var comments = "";
 		
 //		var rows = txtAreaVal.split(regex);
 		
@@ -94,7 +95,7 @@ $(document).ready(function(){
 					
 					console.log(u+" "+rows[u]);
 					
-					var lbl = rows[u].replace(/\.|:/g,"");
+					var lbl = rows[u];//.replace(/\.|:/g,"");
 					
 					var required = "";
 					
@@ -116,12 +117,12 @@ $(document).ready(function(){
 					
 					console.log(rows[i]);
 					
-					comments = comments +"\n"+rows[i];
+					_comments = _comments +"\n"+rows[i];
 					
 					var u = i+1;
 					
 					while( u < rows.length-1){
-						comments = comments+"\n"+rows[u];
+						_comments = _comments+"\n"+rows[u];
 						u++;
 					}
 					break;
@@ -150,8 +151,11 @@ $(document).ready(function(){
 				              "</div>";
 			}else{
 				if(_labelsArray[i].label!=="" ){
+					
+					var label = _labelsArray[i].label.replace(/\.|:/g,"");
+					
 					table = table+"<div class='row' >" +
-				                    "<div class='col-md-4'>"+_labelsArray[i].label+"</div>";	
+				                    "<div class='col-md-4'>"+label+"</div>";	
 				                    if(_labelsArray[i].required===true){
 				                    	table = table+"<div class='col-md-8'><input type='text' id='"+_labelsArray[i].id+"' style='width: 70%;' required>"+"</div>";
 				                    }else{
@@ -203,6 +207,8 @@ $(document).ready(function(){
 	
 	function saveTemplateContent(){
 		
+		var newTxtAreaContent = "";
+		
 		for(var i = 0; i < _labelsArray.length-1; i++){
 			
 			var requiredFieldNotFilled = false;
@@ -213,10 +219,13 @@ $(document).ready(function(){
 			
 			if(id > 0){
 				var txt = $("#"+id).val();
-				alert("text: "+txt)
+				newTxtAreaContent = newTxtAreaContent + _labelsArray[i].label+"\n"+txt+"\n";
 			}
 		}
 		
+		newTxtAreaContent = newTxtAreaContent+"\n"+_comments;
+		$("#txtArea").val("");
+		$("#txtArea").val(newTxtAreaContent);
 	}
 	
 
