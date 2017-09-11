@@ -3,18 +3,32 @@ $(document).ready(function(){
 	
 	$("#searchUserBtn").click(function(e){
 		
-		alert("Serach user");
+		var obj = objs_users[0];
+
 		
 		
 	});
 	
 	
-	$("button").click(function() {
+	$("#searchUserField").keyup(function() {
+		
+		var searchFieldContent = $("#searchUserField").val();
+		
+		
+		
+	  
+	});
+	
+	
+	//$("button")
+	$("[id*='del_btn_']").click(function() {
 	    //alert(this.id); // or alert($(this).attr('id'));
 	    
 		var btn_id = this.id;
 		
-	    if(id ===  "searchUserBtn" ){
+		alert("button id: "+btn_id);
+		
+	    if(btn_id ===  "searchUserBtn" ){
 	    	alert("show da user");
 	    }else{
 	    	var id = btn_id.slice(-1);
@@ -36,7 +50,6 @@ $(document).ready(function(){
 	    		// admin has pressed ok so the user has to be deleted
 	    		// send it to the adminservlet and parameter is the username
 	    		$.get("AdminServlet", {username: username}, function(data){
-	    			
 	    			// remove affected row 
 	    			$('#row_id_'+id).remove();
 	    		});

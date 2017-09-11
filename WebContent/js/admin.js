@@ -19,9 +19,9 @@ $(document).ready(function(){
 		 
 		 var br1 = "<br/>";
 		 
-		 var userSearchField = "<input type='text' id='searchUserField' size='50' class='searchUser' ></textarea>";
+		 var userSearchField = "<input type='text' id='searchUserField' size='80' class='searchUser' ></textarea>";
 		 
-		 var searchUserBtn = "<button id='searchUserBtn' class='searchUser' >Search user</button>"
+		 var searchUserBtn = "<button id='searchUserBtn' class='searchUser' >search</button>"
 		 
 		 var br2 = "<br/>";
 		 
