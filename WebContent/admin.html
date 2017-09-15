@@ -3,7 +3,13 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>WebApp | Admin console</title>
-	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 	<script   rel="text/javascript" src="js/webapp2.js"  ></script>
 	<script type="text/javascript" src="js/admin.js"></script>
 	<script type="text/javascript" src="js/admin2.js"></script>
@@ -11,9 +17,28 @@
 	<link   rel="stylesheet" href="css/admin.css"  ></link>
 </head>
 <body>
-	<div id="navHeader"></div>
-	<br/>
-	<br/>
+
+  <div class="container">
+    <div class="row" style="margin-top: 50px; font-size: 1.5em; border-radius: 5px; border-style: solid; border-width: 1px;">
+      <div class="col-lg-2 text-center ">
+        <a href="register.html" >Register</a>
+      </div>
+      <div class="col-lg-2 text-center">
+        <a href="login.html" >Login</a>
+      </div>
+      <div class="col-lg-3 text-center">
+        <a href="admin.html" >Just for the admin</a>
+      </div>
+      <div class="col-lg-2 text-center">
+        <a href="userprofile.html" >My Profile</a>
+      </div>
+      <div class="col-lg-3 text-center">
+        <a href="tmplcreation.html">Template Creation</a>
+      </div>
+    </div>
+	<div class="row" style="margin-top: 50px; font-size: 1.5em; border-radius: 5px; border-style: solid; border-width: 1px;">
+	  
+	</div>
 	
 	<h1>User process</h1>
 			
@@ -23,7 +48,7 @@
 	<br/>
 	
 	<div id="result"></div>
-	
+  </div>
 
 </body>
 </html>

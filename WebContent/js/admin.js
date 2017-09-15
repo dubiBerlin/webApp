@@ -95,6 +95,7 @@ $(document).ready(function(){
 			 html = html+ "</table>" +
 			 			  	"</div>"
 			 
+			 $("#result").empty();
 			 $(html).appendTo("#result");
 			 
 			 $.getScript("js/admin2.js");

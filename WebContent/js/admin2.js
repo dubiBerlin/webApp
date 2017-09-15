@@ -13,10 +13,6 @@ $(document).ready(function(){
 	$("#searchUserField").keyup(function() {
 		
 		var searchFieldContent = $("#searchUserField").val();
-		
-		
-		
-	  
 	});
 	
 	
