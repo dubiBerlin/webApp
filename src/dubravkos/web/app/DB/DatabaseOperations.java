@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import dubravkos.web.app.beans.Template;
 import dubravkos.web.app.beans.User;
 
 public class DatabaseOperations {
@@ -102,8 +103,29 @@ public class DatabaseOperations {
 		
 		Statement stmt = connection.createStatement();
 		int deletionResult = stmt.executeUpdate(query);
-		
+		connection.close();
 		return deletionResult;
+	}
+	
+	// String templatename, String template
+	public static boolean insertNewTemplate(Template template) throws SQLException{
+		connection = DBManager.getMySQLDBConnection();
+        String query = "insert into templates(template, template_name) values(?,?)";
+		
+		PreparedStatement stmt =	connection.prepareStatement(query);
+		stmt.setString(1, template.getTemplate());
+		stmt.setString(2, template.getTemplatename());		
+		
+		if(stmt.executeUpdate()>0){
+
+			connection.close();
+			return true;
+			
+		}else{
+
+			connection.close();
+			return false;
+		}
 	}
 	
 
